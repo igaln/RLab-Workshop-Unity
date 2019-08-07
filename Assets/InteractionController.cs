@@ -5,17 +5,32 @@ using UnityEngine;
 public class InteractionController : MonoBehaviour
 {
 	public Animator animator;
+
+    //public bool ReadyToFly = false;
+
     public float blendAmount = 0;
     // Start is called before the first frame update
     void Start()
     {
       //  animator.SetInteger("Ready", 2);
-        animator.SetFloat("Blend", blendAmount);
+       // animator.SetFloat("Blend", blendAmount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Blend", blendAmount);
+        // animator.SetFloat("Blend", blendAmount);
+
+       
+    }
+
+    private void OnEnable()
+    {
+        animator.SetBool("ReadyToFly",true);
+    }
+
+    private void OnDisable()
+    {
+        
     }
 }
