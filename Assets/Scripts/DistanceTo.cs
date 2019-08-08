@@ -4,12 +4,27 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
+using System;
+using UnityEngine.Events;
+using Depthkit;
+
+[Serializable]
+public class TriggerThroughDistance : UnityEvent { }
+
 public class DistanceTo : MonoBehaviour
 {
 
-	public Transform other;
+    public TriggerThroughDistance triggerThroughDistance;
+
+    public Transform other;
+
+    public Depthkit_Clip myVolumetricClip;
     public Animator elvisAnimator;
     public PlayableDirector timeline;
+
+    float VolumetricSpikeAmount = 0.6f;
+    float DistanceAmountForTrigger = 5;
+    float MaxSpikeFilter = 1.0f;
 
     private void Start()
     {
@@ -27,13 +42,24 @@ public class DistanceTo : MonoBehaviour
 
             if (dist < 5)
             {
-                print("Distance to other: " + (5 - dist));
+
+                print("Distance to Volumetric Clip: " + (5 - dist));
+
                 //check if elvis animator is actually connected
+
+                if ( (MaxSpikeFilter - (DistanceAmountForTrigger - dist)) > VolumetricSpikeAmount)
+                {
+                    myVolumetricClip._internalEdgeCutoffAngle = MaxSpikeFilter - (DistanceAmountForTrigger - dist);
+                }
+
+                triggerThroughDistance.Invoke();
+
+
                 if (elvisAnimator != null)
                 {
                    // print("start blending");
                     elvisAnimator.SetFloat("ElvisBlend", 5 - dist);
-                    timeline.Play();
+                   // timeline.Play();
                 }
             }
 			

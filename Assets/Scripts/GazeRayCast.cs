@@ -5,11 +5,14 @@ using UnityEngine;
 public class GazeRayCast : MonoBehaviour
 {
     public Camera camera;
+
     public GazeTrigger gazeTrigger;
 
     void Update()
     {
+        //create a vector in forward direction from the camera 
         Vector3 fwd = camera.transform.TransformDirection(Vector3.forward);
+        //Debug draw line for your raycast
         Debug.DrawRay(camera.transform.position, fwd * 40, Color.green);
 
         RaycastHit hit;
@@ -18,9 +21,9 @@ public class GazeRayCast : MonoBehaviour
             Transform objectHit = hit.transform;
 
             Debug.Log(hit.transform.name);
-            if (objectHit.name == "Elvis")
+            if (objectHit.name == "greek_column_1")
             {
-                Debug.Log("fill");
+                Debug.Log("fill the gaze ui notification");
                 gazeTrigger.Fill();
             }
 
