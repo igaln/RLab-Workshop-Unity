@@ -743,6 +743,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ColumnParent
       objectReference: {fileID: 0}
+    - target: {fileID: 3336280498260337926, guid: ab69068732a3d448ca90bd1f8ec16d3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1072415894698468883, guid: ab69068732a3d448ca90bd1f8ec16d3d,
         type: 3}
       propertyPath: m_LocalPosition.x

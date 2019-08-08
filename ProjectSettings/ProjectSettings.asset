@@ -527,7 +527,14 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: DK_USING_ZERODAYSLOOK
+    4: DK_USING_ZERODAYSLOOK
+    7: DK_USING_ZERODAYSLOOK
+    14: DK_USING_ZERODAYSLOOK
+    19: DK_USING_ZERODAYSLOOK
+    21: DK_USING_ZERODAYSLOOK
+    25: DK_USING_ZERODAYSLOOK
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

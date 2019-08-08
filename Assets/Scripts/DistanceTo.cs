@@ -25,7 +25,6 @@ public class DistanceTo : MonoBehaviour
             //transform refers to the gameobject this is attached to
 			float dist = Vector3.Distance(other.position, transform.position);
 
-          
             if (dist < 5)
             {
                 print("Distance to other: " + (5 - dist));
